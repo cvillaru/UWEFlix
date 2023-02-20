@@ -6,15 +6,6 @@
 </head>
 <body>
     
-    {% comment %} {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}></li>
-                    {{ message }}
-            {% endfor %}
-        </ul>
-    {% endif %} {% endcomment %}
-
     {% if messages %}
 
         {% for message in messages %}
@@ -22,13 +13,9 @@
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ message }}    
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-
-        
+        </div>
 
         {% endfor %}
-
-        
 
     {% endif %}
     

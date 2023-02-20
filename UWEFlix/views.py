@@ -43,3 +43,14 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'UWEFlix/register_user.html', {'form': form})
+
+
+def logout_user(request):
+    logout(request)
+    if not request.user.is_authenticated:
+        messages.success(request, "You have been logged out")
+    else:
+        messages.error(request, "unable to log you out")
+    return redirect('home')
+
+    

@@ -31,13 +31,15 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
             messages.success(request, f'Account created for {username}')
             return redirect('home')
         else: 
             messages.success(request, ("There was an error creating an account, please try again"))
-            return redirect(request, 'home')
+            return redirect('register_user')
     else:
         form = UserCreationForm()
     return render(request, 'UWEFlix/register_user.html', {'form': form})

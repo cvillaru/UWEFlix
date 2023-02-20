@@ -1,8 +1,14 @@
 {% extends 'UWEFlix/base.html' %}
 
 
+
+
 {% block content %}
 
-    Hello {{ name }}
+{% include 'UWEFlix/navbar.html' %}
+
+<br>
+
+    Home page of {{ name }}
 
 {% endblock %}

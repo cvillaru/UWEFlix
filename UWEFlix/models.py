@@ -28,3 +28,7 @@ class Club(models.Model):
 
     def __str__(self) -> str:
         return self.club_name
+
+#TEST
+
+TEST

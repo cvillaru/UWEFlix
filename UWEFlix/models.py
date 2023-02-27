@@ -28,3 +28,9 @@ class Club(models.Model):
 
     def __str__(self) -> str:
         return self.club_name
+    
+class ClubRepresentative(models.Model):
+    username = models.CharField(name = "Full Name", max_length=100)
+    
+    def __str__(self) -> str:
+        return self.username

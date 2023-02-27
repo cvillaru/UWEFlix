@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 
 def home(request):
     
@@ -10,7 +11,6 @@ def home(request):
     return render(request, 'UWEFlix/home.html', {
         'name': name
     })
-
 
 def login_user(request):
     if request.method == 'POST':
@@ -44,7 +44,6 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'UWEFlix/register_user.html', {'form': form})
 
-
 def logout_user(request):
     logout(request)
     if not request.user.is_authenticated:
@@ -52,5 +51,18 @@ def logout_user(request):
     else:
         messages.error(request, "unable to log you out")
     return redirect('home')
+
+def showings(request):
+    
+    return render('UWEFlix/showings.html')
+
+'''
+Club Rep Stuff
+'''
+
+def validate_clubrepresentativenumber(value):
+    if value % 1 != 0:
+        raise ValidationError('This field only accepts numbers')
+        
 
     

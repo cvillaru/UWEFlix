@@ -16,3 +16,8 @@ password: LMicyb8=O
 
 
 Link to Jira: https://uweflixgroup3.atlassian.net/jira/software/projects/UW/boards/1/backlog
+
+
+Carlo - CLub Rep:
+    added club rep model
+    added club and assigned a user as club rep 
